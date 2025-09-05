@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class VetorSemRepeticao {
@@ -17,10 +18,11 @@ public class VetorSemRepeticao {
         for (int i = 0; i < tam; i += 1) {
             int num;
             do {
-                System.out.print("Digite o elemento da posição " + i + ": ");
+                
+                System.out.print("Digite um número para ocupar a posição " + i + ": ");
                 num = input.nextInt();
                 if (buscaSequencial(v, num, i) != -1) {
-                    System.out.println("Valor repetido! Digite outro número.");
+                    System.out.println("Você repetiu o Valor! Digite outro número.");
                 }
             } while (buscaSequencial(v, num, i) != -1);
             v[i] = num;
@@ -36,4 +38,3 @@ public class VetorSemRepeticao {
         return -1;
     }
 }
-
