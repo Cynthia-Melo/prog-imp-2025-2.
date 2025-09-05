@@ -1,1 +1,39 @@
+import java.util.Scanner;
+
+public class VetorSemRepeticao {
+
+    public static void main(String[] args) {
+        int tam = 10;
+        int[] vetor = new int[tam];
+        preencherVetorDigitacaoSemRepeticao(vetor, tam, 0);
+        System.out.println("Vetor final:");
+        for (int i = 0; i < tam; i += 1) {
+            System.out.print(vetor[i] + " ");
+        }
+    }
+
+    public static void preencherVetorDigitacaoSemRepeticao(int[] v, int tam, int x) {
+        Scanner input = new Scanner(System.in);
+        for (int i = 0; i < tam; i += 1) {
+            int num;
+            do {
+                System.out.print("Digite o elemento da posição " + i + ": ");
+                num = input.nextInt();
+                if (buscaSequencial(v, num, i) != -1) {
+                    System.out.println("Valor repetido! Digite outro número.");
+                }
+            } while (buscaSequencial(v, num, i) != -1);
+            v[i] = num;
+        }
+    }
+
+    public static int buscaSequencial(int[] v, int valor, int tamanhoAtual) {
+        for (int i = 0; i < tamanhoAtual; i += 1) {
+            if (v[i] == valor) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
 
